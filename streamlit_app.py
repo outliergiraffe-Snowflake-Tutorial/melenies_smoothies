@@ -18,7 +18,7 @@ cnx = st.connection("snowflake")
 session = cnx.session()
 
 # Edit the dataframe line to select ONLY the fruit_name column
-my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
+my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'),col('SEARCH_ON'))
 
 ingredients_list = st.multiselect('Choose Upto 5 Ingredients:',my_dataframe,max_selections = 5)
 ingredients_string = ''
